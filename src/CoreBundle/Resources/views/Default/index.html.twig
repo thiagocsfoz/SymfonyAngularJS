@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {% include 'CoreBundle:Default:styles.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {% include content~'index.html.twig' %}
+    {% include 'CoreBundle:Default:scripts.html.twig' %}
+    {% include content~'scripts.html.twig' %}
+{% endblock %}
+

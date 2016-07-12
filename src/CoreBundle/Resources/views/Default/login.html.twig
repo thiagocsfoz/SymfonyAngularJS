@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <!-- Meta-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>App</title>
+</head>
+
+<body style="margin: 0 auto">
+<p class="text-center mb-lg">
+    <strong>Entrar Área Restrita</strong>
+</p>
+<div class="panel-body">
+    <form novalidate="" role="form" class="mb-lg" method="post" action="{{ path('login_app') }}">
+        <div class="form-group has-feedback">
+            <input id="login" name="_username" type="text" placeholder="Login" class="form-control">
+        </div>
+        <div class="form-group has-feedback">
+            <input id="password" name="_password" type="password" placeholder="Senha" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Entrar</button>
+    </form>
+</div>
+</body>
+
+</html>

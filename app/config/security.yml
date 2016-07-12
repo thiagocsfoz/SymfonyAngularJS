@@ -1,0 +1,42 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        CoreBundle\Entity\Users:
+              algorithm: md5
+              encode_as_base64: false
+              iterations: 0
+
+    access_control:
+        - { path: ^/system/login,          roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$,                      roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin,                 roles: ROLE_ADMIN }
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        user_db:
+            entity: { class: CoreBundle\Entity\Users, property: username }
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        restricted_area_app:
+            pattern:          ^/
+            anonymous:        ~
+            provider:         user_db
+            form_login:
+              login_path: login_app
+              check_path: login_app
+              always_use_default_target_path: true
+              default_target_path: /
+              failure_forward: false
+              failure_path: null
+              success_handler: login_handler
+            logout:
+              path:           /system/logout
+              target:         /
