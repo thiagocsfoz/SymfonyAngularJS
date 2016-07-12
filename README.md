@@ -1,2 +1,2 @@
-# SymfonyAngularJS
-Symfony + AngularJS
+# Symfony and AngularJS
+Symfony + AngularJS + AMFPHP
